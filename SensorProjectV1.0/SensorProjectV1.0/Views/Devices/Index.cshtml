@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SensorProjectV1._0.Models.Device>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.EmailID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <th>
+            @Html.DisplayFor(model => item.DeviceID)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.EmailID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DeviceID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.DeviceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DeviceID })
+        </td>
+    </tr>
+}
+
+</table>
